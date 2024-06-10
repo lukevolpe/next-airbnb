@@ -15,7 +15,7 @@ export default async function Home() {
   return (
     <Container>
       <div
-        className='
+        className="
         pt-24
         grid
         grid-cols-1
@@ -25,9 +25,9 @@ export default async function Home() {
         xl:grid-cols-5
         2xl:grid-cols-6
         gap-8
-      '
+      "
       >
-        {listings.map((listing: any) => {
+        {listings.map((listing) => {
           return (
             <ListingCard
               key={listing.id}
