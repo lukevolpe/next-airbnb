@@ -14,6 +14,7 @@ interface ListingReservationProps {
   disabledDates: Date[];
 }
 
+// Component to display the datepicker + price / night on the listing page
 const ListingReservation: React.FC<ListingReservationProps> = ({
   price,
   dateRange,
