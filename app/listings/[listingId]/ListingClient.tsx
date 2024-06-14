@@ -29,8 +29,8 @@ interface ListingClientProps {
 }
 
 const ListingClient: React.FC<ListingClientProps> = ({
-  reservations = [],
   listing,
+  reservations = [],
   currentUser,
 }) => {
   const loginModal = useLoginModal();

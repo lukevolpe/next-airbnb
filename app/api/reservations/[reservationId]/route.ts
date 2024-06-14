@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+
 import getCurrentUser from '@/app/actions/getCurrentUser';
 import prisma from '@/app/libs/prismadb';
 
@@ -13,14 +14,18 @@ export async function DELETE(
   console.log('DELETE request received');
   console.log('params:', params);
 
-  const currentUser = await getCurrentUser();
+  const currentUser = await getCurrentUser(); // Gets the current user
+
+  // If there is no current user, returns an error
   if (!currentUser) {
     return NextResponse.error();
   }
 
+  // De-structures the reservation ID from the request params
   const { reservationId } = params;
 
-  if (!reservationId || typeof reservationId !== 'string') {
+  // Checks if there is no reservationId or the type of it isn't a string, then throws an error
+  if (!reservationId || typeof reservationId != 'string') {
     throw new Error('Invalid reservation ID');
   }
 

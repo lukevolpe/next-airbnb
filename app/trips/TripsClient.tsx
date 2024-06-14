@@ -18,6 +18,8 @@ const TripsClient: React.FC<TripsClientProps> = ({
   reservations,
   currentUser,
 }) => {
+  console.log(reservations);
+
   const router = useRouter();
   const [deletingId, setDeletingId] = useState('');
 
@@ -32,7 +34,7 @@ const TripsClient: React.FC<TripsClientProps> = ({
           router.refresh();
         })
         .catch((error) => {
-          toast.error(error?.response?.data?.error);
+          toast.error(error?.response?.data?.error || 'Something went wrong');
         })
         .finally(() => {
           setDeletingId('');
