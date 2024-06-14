@@ -8,7 +8,7 @@ interface IParams {
 }
 
 // Post function to add favourites to a user
-export async function POST(request: Request, { params } = { params: IParams }) {
+export async function POST(request: Request, { params }: { params: IParams }) {
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
@@ -17,7 +17,7 @@ export async function POST(request: Request, { params } = { params: IParams }) {
 
   const { listingId } = params;
 
-  if (!listingId || typeof listingId != 'string') {
+  if (!listingId || typeof listingId !== 'string') {
     throw new Error('Invalid ID');
   }
 
