@@ -7,7 +7,7 @@ interface IParams {
   listingId?: string;
 }
 
-// Post function to add favourites to a user
+// Post function to add favourites to a user's account
 export async function POST(request: Request, { params }: { params: IParams }) {
   const currentUser = await getCurrentUser();
 
