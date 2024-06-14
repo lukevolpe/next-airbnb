@@ -14,6 +14,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Range } from 'react-date-range';
 import toast from 'react-hot-toast';
 
+// Creates initial date range
 const initialDateRange = {
   startDate: new Date(),
   endDate: new Date(),
