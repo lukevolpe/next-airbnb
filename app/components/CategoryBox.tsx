@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useCallback } from 'react';
+import { useCallback, Suspense } from 'react';
 import { IconType } from 'react-icons';
 import queryString from 'query-string';
 
@@ -70,9 +70,15 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
       `}
     >
       <Icon size={26} />
-      <div className='font-medium text-sm'>{label}</div>
+      <div className="font-medium text-sm">{label}</div>
     </div>
   );
 };
 
-export default CategoryBox;
+const CategoryBoxWrapper: React.FC<CategoryBoxProps> = (props) => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <CategoryBox {...props} />
+  </Suspense>
+);
+
+export default CategoryBoxWrapper;

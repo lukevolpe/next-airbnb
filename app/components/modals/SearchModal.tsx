@@ -3,7 +3,7 @@
 import useSearchModal from '@/app/hooks/useSearchModal';
 import Modal from './Modal';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useCallback, useMemo, useState } from 'react';
+import { Suspense, useCallback, useMemo, useState } from 'react';
 import { Range } from 'react-date-range';
 import dynamic from 'next/dynamic';
 import CountrySelect, { CountrySelectValue } from '../inputs/CountrySelect';
@@ -199,4 +199,10 @@ const SearchModal = () => {
   );
 };
 
-export default SearchModal;
+const SearchModalWrapper = (props: any) => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <SearchModal {...props} />
+  </Suspense>
+);
+
+export default SearchModalWrapper;
