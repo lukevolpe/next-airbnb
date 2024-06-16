@@ -1,9 +1,10 @@
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useCallback, Suspense } from 'react';
+import { useCallback } from 'react';
 import { IconType } from 'react-icons';
 import queryString from 'query-string';
+import WithSuspense from './WithSuspense';
 
 interface CategoryBoxProps {
   icon: IconType;
@@ -75,10 +76,4 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
   );
 };
 
-const CategoryBoxWrapper: React.FC<CategoryBoxProps> = (props) => (
-  <Suspense fallback={<div>Loading...</div>}>
-    <CategoryBox {...props} />
-  </Suspense>
-);
-
-export default CategoryBoxWrapper;
+export default WithSuspense(CategoryBox);
