@@ -4,6 +4,8 @@ import getCurrentUser from '../actions/getCurrentUser';
 import getReservations from '../actions/getReservations';
 import ReservationsClient from './ReservationsClient';
 
+import WithSuspense from '../components/WithSuspense';
+
 const ReservationsPage = async () => {
   const currentUser = await getCurrentUser();
 
@@ -31,4 +33,4 @@ const ReservationsPage = async () => {
   );
 };
 
-export default ReservationsPage;
+export default WithSuspense(ReservationsPage);

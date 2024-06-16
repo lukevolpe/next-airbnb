@@ -3,6 +3,7 @@ import getListingById from '@/app/actions/getListingById';
 import EmptyState from '@/app/components/EmptyState';
 import ListingClient from './ListingClient';
 import getReservations from '@/app/actions/getReservations';
+import WithSuspense from '@/app/components/WithSuspense';
 
 interface IParams {
   listingId?: string;
@@ -26,4 +27,4 @@ const ListingPage = async ({ params }: { params: IParams }) => {
   );
 };
 
-export default ListingPage;
+export default WithSuspense(ListingPage);

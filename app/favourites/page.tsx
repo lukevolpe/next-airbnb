@@ -4,6 +4,8 @@ import getCurrentUser from '../actions/getCurrentUser';
 import getFavouriteListings from '../actions/getFavouriteListings';
 import FavouritesClient from './FavouritesClient';
 
+import WithSuspense from '../components/WithSuspense';
+
 const ListingPage = async () => {
   const listings = await getFavouriteListings();
   const currentUser = await getCurrentUser();
@@ -20,4 +22,4 @@ const ListingPage = async () => {
   return <FavouritesClient listings={listings} currentUser={currentUser} />;
 };
 
-export default ListingPage;
+export default WithSuspense(ListingPage);

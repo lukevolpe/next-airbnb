@@ -4,6 +4,8 @@ import getCurrentUser from '../actions/getCurrentUser';
 import getReservations from '../actions/getReservations';
 import TripsClient from './TripsClient';
 
+import WithSuspense from '../components/WithSuspense';
+
 const TripsPage = async () => {
   const currentUser = await getCurrentUser();
 
@@ -27,4 +29,4 @@ const TripsPage = async () => {
   return <TripsClient reservations={reservations} currentUser={currentUser} />;
 };
 
-export default TripsPage;
+export default WithSuspense(TripsPage);

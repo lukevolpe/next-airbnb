@@ -4,6 +4,8 @@ import getCurrentUser from '../actions/getCurrentUser';
 import PropertiesClient from './PropertiesClient';
 import getListings from '../actions/getListings';
 
+import WithSuspense from '../components/WithSuspense';
+
 const PropertiesPage = async () => {
   const currentUser = await getCurrentUser();
 
@@ -27,4 +29,4 @@ const PropertiesPage = async () => {
   return <PropertiesClient listings={listings} currentUser={currentUser} />;
 };
 
-export default PropertiesPage;
+export default WithSuspense(PropertiesPage);
