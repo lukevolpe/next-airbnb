@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 
-const withSuspense = <P extends object>(
+const WithSuspense = <P extends object>(
   Component: React.ComponentType<P>,
   fallback: React.ReactNode = <div>Loading...</div>
 ) => {
@@ -10,11 +10,11 @@ const withSuspense = <P extends object>(
     </Suspense>
   );
 
-  WrappedComponent.displayName = `withSuspense(${
+  WrappedComponent.displayName = `WithSuspense(${
     Component.displayName || Component.name || 'Component'
   })`;
 
   return WrappedComponent;
 };
 
-export default withSuspense;
+export default WithSuspense;
